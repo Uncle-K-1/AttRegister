@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 import { Routes, Route, Link } from 'react-router-dom';
 import About from './About';
+import Home from './Home';
 import './login.css';
-import userS from './logins/userS'
-import userT from './logins/userT'
+import UserS from './UserS';
+import UserT from './UserT';
 
 
 function App() {
@@ -22,27 +23,34 @@ function App() {
 	return (
 
 		<div>
-			<div class="d-flex justify-content-center">
+			<div className="d-flex justify-content-center">
 
-				<nav class="navbar navbar-expand-lg navbar-light bg-light">
-					<a class="navbar-brand" href="#">University of Professional Science</a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
+				<nav className="navbar navbar-expand-lg navbar-light bg-light">
+					<Link className="navbar-brand" to="/">University of Professional Science</Link>
+					<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+						<span className="navbar-toggler-icon"></span>
 					</button>
-					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-						<div class="navbar-nav">
-							<Link class="nav-item nav-link active" to="/">Home</Link>
-							<Link class="nav-item nav-link active" to="/about">About</Link>
+					<div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+						<div className="navbar-nav">
+							<Link className="nav-item nav-link active" to="/">Home</Link>
+							<Link className="nav-item nav-link active" to="/about">About</Link>
 
 						</div>
 					</div>
 				</nav>
 			</div>
+			<Routes>
+				<Route path='/' element={<Home />} />
+				<Route path='/slogin' element={<UserS />} />
+				<Route path='/about' element={<About />} />
+				<Route path='/tlogin' element={<UserT />} />
+			</Routes>
 
-			<div class="d-flex justify-content-center">
+
+			<div className="d-flex justify-content-center">
 
 				{typeof backendData.users === 'undefined' ? (
-					<h1>Loading...</h1>
+					<p>Loading...</p>
 				) : (
 					backendData.users.map((user, i) => (
 						<h1 key={i}>{user}</h1>
@@ -53,11 +61,7 @@ function App() {
 			</div>
 
 
-			<Routes>
-				<Route path='/about' element={<About />} />
-				<Route path='/Slogin' element={<userS />} />
-				<Route path='/Tlogin' element={<userT />} />
-			</Routes>
+
 
 
 		</div>
