@@ -8,13 +8,13 @@ module.exports = mongoose => {
                 lowercase: true,
                 unique: true
             },
+            email: {
+                type: String,
+                required: true
+            },
             password: {
                 type: String
             },
-            animals: [{
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "animal"
-            }],
             dateCreated: {
                 type: Date,
                 required: true,

@@ -6,6 +6,7 @@ import Home from './Home';
 import './login.css';
 import UserS from './UserS';
 import UserT from './UserT';
+import Register from './Register';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
 					<div className="collapse navbar-collapse" id="navbarNavAltMarkup">
 						<div className="navbar-nav">
 							<Link className="nav-item nav-link active" to="/">Home</Link>
+							<Link className="nav-item nav-link active" to="/register">Register</Link>
 							<Link className="nav-item nav-link active" to="/about">About</Link>
 
 						</div>
@@ -41,6 +43,7 @@ function App() {
 			</div>
 			<Routes>
 				<Route path='/' element={<Home />} />
+				<Route path='/register' element={<Register />} />
 				<Route path='/slogin' element={<UserS />} />
 				<Route path='/about' element={<About />} />
 				<Route path='/tlogin' element={<UserT />} />
