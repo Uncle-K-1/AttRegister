@@ -9,6 +9,9 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
 
+//routers
+var Homerouter = require('./routes/homeRouter');
+
 app.use(logger('dev'));
 app.use(cors());
 app.use(express.json());
@@ -21,8 +24,11 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//connectint to database with mongoose
+app.use("/",);
+
+//connecting to database with mongoose
 const db = require("./models");
+const { default: Homerouter } = require('./routes/homeRouter');
 db.mongoose.connect(db.url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
